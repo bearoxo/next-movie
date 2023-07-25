@@ -1,0 +1,41 @@
+@import 'modern-normalize/modern-normalize.css';
+@import '_variables.css';
+
+:root {
+  /* Container */
+  --container---max--width: 1440px;
+  
+  /* Color palette */
+  --color-base---black: rgba(0, 0, 0, 1);
+  --color-base---white: rgba(255, 255, 255, 1);
+  --color-primary---dark--gray: rgba(30, 30, 30, 1);
+  --color-primary---black: rgba(82, 82, 82, 1);
+  --color-secondary---medium-gray: rgba(61, 61, 61, 1);
+  --color-secondary---shadow-gold: rgba(48, 45, 40, 1);
+  --color-secondary---yellow: rgba(254, 213, 48, 1);
+  --color-text---title: rgba(46, 46, 46, 1);
+  --color-text---body: rgba(128, 128, 128, 1);
+  --color-text---in-field: rgba(204, 204, 204, 1);
+  --color-text---disable: rgba(230, 230, 230, 1);
+  --color-text---white: rgba(255, 255, 255, 1);
+  --color-other---image-placeholder: rgba(51, 51, 51, 1);
+  --color-other---gray: rgba(46, 46, 46, 1);
+}
+
+/* Typography */
+* { font-family: 'DM Sans', sans-serif; }
+h1 { font-size: 72px; font-weight: 700;	line-height: 96px; }
+h2 { font-size: 64px;	font-weight: 700;	line-height: 88px; }
+h3 { font-size: 48px;	font-weight: 700;	line-height: 64px; }
+h4 { font-size: 32px; font-weight: 700; line-height: 48px; margin: 0px; }
+h5 { font-size: 24px;	font-weight: 700;	line-height: 32px; margin: 0px;}
+h6 { font-size: 16px;	font-weight: 700;	line-height: 24px; margin: 0px; }
+p {	font-size: 16px; font-weight: 400; line-height: 32px; }
+a {	text-decoration: none; color: var(--color-text---white); }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.font-regular { font-weight: 400; }
+.font-sm { font-size: 14px; line-height: 24px; }
+.font-xs { font-size: 12px;	line-height: 24px; }
+.text-white {	color: var(--color-text---white); }
+

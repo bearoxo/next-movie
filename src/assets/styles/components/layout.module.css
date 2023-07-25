@@ -1,0 +1,16 @@
+.body {
+	display: flex;
+	width: 100%;
+}
+
+.container {
+	background-color: var(--color-primary---dark--gray);
+  position: relative;
+	width: 100%;
+	max-width: var(--container---max--width);
+	margin-inline: auto;
+	/* height: 100%; */
+	/* min-height: 100vh; */
+	/* top: 0px; */
+	/* left: 0px; */
+}
