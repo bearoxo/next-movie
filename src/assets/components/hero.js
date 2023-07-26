@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/components/hero.module.css';
-import playButton from '../img/play-button.svg'
+import playButton from '../../../public/img/play-button.svg'
 
 export default function HeroMain () {
   const router = useRouter();
@@ -14,12 +14,14 @@ export default function HeroMain () {
           <Image 
             src={playButton}
             alt="Play button"
-            height={550}
-            width={550}
+            height={250}
+            width={250}
           />
         </div>
-        <h1>Find your movies here!</h1>
-        <h4>Explore our gallery full of exciting films from all around the globe only your yor entertainments. No hidden charges or disturbing ads.</h4>
+        <div className={styles.content}>
+          <h1>Find your movies here!</h1>
+          <p>Explore our gallery full of exciting films from all around the globe only your yor entertainments. No hidden charges or disturbing ads.</p>
+        </div>
       </div>
     </div>
   )

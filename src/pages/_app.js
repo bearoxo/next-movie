@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout styleName="">
+      <Layout>
         <Component {...pageProps}/>
       </Layout>
     </>

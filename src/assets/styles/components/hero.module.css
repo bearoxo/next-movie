@@ -1,20 +1,20 @@
 .hero {
-	height: 100vh;
+	height: 770px;
 	width: 100%;
 	background: rgb(0, 0, 0);
 	background: linear-gradient(270deg, rgba(5, 5, 5, 1) -2.92%, rgba(5, 5, 5, 0) 100%);
-	color: var(--color-text-white);
+	color: var(--color-text---white);
 }
 
 .container {
 	display: flex;
 	height: 100%;
-	max-width: var(--container-width);
+	max-width: var(--container---max-width);
 	margin: 0px auto;
-	width: 100%;
+	width: 85%;
 	align-items: center;
-	justify-content: center;
-	gap: 148px;
+	justify-content: space-around;
+	gap: 50px;
 }
 
 .content {
@@ -24,33 +24,10 @@
 .content h1 {
 	margin-bottom: 24px;
 }
-
-.content .btn {
-	display: inline-block;
-	margin-top: 30px;
-	padding: 15px 45px;
-	background-color: var(--color-secondary-yellow);
-	border: none;
-	border-radius: 100px;
-	font-size: 20px;
-	font-weight: 700;
-	color: #000;
-	cursor: pointer;
+.content p {
+	width: 500px;
 }
 
-@media screen and (max-width: 1200px) {
-	.container {
-		max-width: 100%;
-		padding: 0px 20px;
-		gap: 80px;
-	}
-}
-
-@media screen and (max-width: 992px) {
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 576px) {
+.playBtn {
+	margin-left: 100px;
 }

@@ -2,20 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/components/header.module.css';
-import searchButton from '../img/search-button.svg'
-import profile from '../img/profile.png'
-
-// import { menu } from '../utils/data';
-
-const menu = [
-	{ id: '1', name: 'Home', link: '/' },
-	{ id: '2', name: 'Movies', link: '/movies' },
-	{ id: '3', name: 'TV Show', link: '/tv-show' },
-	{ id: '4', name: 'Video', link: '/video' },
-	{ id: '5', name: 'FAQ', link: '/faq' },
-	{ id: '6', name: 'Pricing', link: '/pricing' },
-	{ id: '7', name: 'Contact Us', link: '/contact-us' },
-];
+import searchButton from '../../../public/img/search-button.svg';
+import profile from '../../../public/img/profile.png'
+import { menu } from '../utils/data'
 
 export default function Header () {
   const router = useRouter();
@@ -50,8 +39,8 @@ export default function Header () {
             <Image 
               src={profile}
               alt="Profile image"
-              height={50}
-              width={50}
+              height={48}
+              width={48}
             />
           </div>
           <h6>bearoxo</h6>
