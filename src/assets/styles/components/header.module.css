@@ -2,6 +2,7 @@
 	position: absolute;
 	width: 100%;
 	color: var(--color-text---white);
+	z-index: 5;
 }
 
 .container {

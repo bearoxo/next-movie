@@ -1,0 +1,57 @@
+.lastWatch {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.title {
+  padding: 125px 100px 50px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  gap: 20px;
+}
+
+.title h3 {
+  font-weight: 500;
+  margin-inline: 10px auto;
+}
+
+.title h5 {
+  color: var(--color-secondary---yellow);
+  margin-inline: auto 10px;
+}
+
+.cardContainer {
+  padding: 15px 85px 150px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+
+.cards {
+  background: purple;
+  height: 560px;
+  flex: 1 0 400px;
+  flex-grow: 0;
+}
+
+.cards:first-of-type {
+  flex-basis: 820px;
+  background: blue;
+  flex-shrink: 1;
+  min-width: 400px;
+}
+
+@media (max-width: 1000px) {
+  .cards:first-of-type {
+    flex-basis: calc(50% - 20px); /* Set the initial width of both big and small cards to 50% minus margins */
+    max-width: calc(50% - 20px); /* Allow both big and small cards to have equal width minus margins */
+  }
+}

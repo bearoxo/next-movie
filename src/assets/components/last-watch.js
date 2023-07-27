@@ -8,9 +8,15 @@ export default function LastWatch () {
 
   return (
     <div className={styles.lastWatch}>
-      <h2>New Releases</h2>
-      <h3>View more</h3>
-      <div className={styles.grid}>
+      <div className={styles.title}>
+        <h3>New Releases</h3>
+        <h5>View more</h5>
+      </div>
+      <div className={styles.cardContainer}>
+        <div className={styles.cards}></div>
+        <div className={styles.cards}></div>
+        <div className={styles.cards}></div>
+        <div className={styles.cards}></div>
         <div className={styles.cards}></div>
       </div>
     </div>
