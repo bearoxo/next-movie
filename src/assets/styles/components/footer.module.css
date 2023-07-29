@@ -10,6 +10,7 @@
 	width: 100%;
   margin-inline: auto;
 	display: flex;
+  overflow: hidden;
 }
 
 .left {
@@ -73,9 +74,13 @@
 
 .menu {
   display: flex;
-  gap: 100px;
-  margin: 135px 50px 75px 50px;
+  gap: 150px;
+  margin: 135px 15px 50px 15px;
   flex-grow: 1;
+}
+
+.menuItem :is(h6, p) {
+  margin: 0 0 25px 0;
 }
 
 .contacts {
