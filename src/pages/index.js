@@ -5,10 +5,10 @@ import { MovieProvider } from '../assets/contexts/MovieContext';
 export default function Home() {
   return (
     <>
-    <MovieProvider>
-      <Hero />
-      <LastWatch />
-    </MovieProvider>
+      <MovieProvider>
+        <Hero />
+        <LastWatch />
+      </MovieProvider>
     </>
   )
 }

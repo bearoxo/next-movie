@@ -2,11 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/components/header.module.css';
-import searchButton from '../../../public/img/search-button.svg';
-import profile from '../../../public/img/profile.png'
-import { menu } from '../utils/data'
+import { header } from '../utils/data'
 
 export default function Header () {
+  const menu = header.menu
+  const search = header.search
+  const profile = header.profile
   const router = useRouter();
 
   return (
@@ -26,22 +27,32 @@ export default function Header () {
         </div>
         
         <div className={styles.search}>
-          <div className={styles.searchButton}>
-            <Image 
-              src={searchButton}
-              alt="Search button"
-            />
-          </div>
+          <div className={`${styles.searchButton} ${router.pathname === search.link ? styles.isActiveIcon : ''}`}>
+            <Link href={search.link} key={search.id}>
+              <a>
+                <Image 
+                  src={search.icon}
+                  alt="Search button"
+                  height={24}
+                  width={24}
+                />
+              </a>
+            </Link>
+          </div>  
         </div>
 
         <div className={styles.profile}>
           <div className={styles.profileImage}>
-            <Image 
-              src={profile}
-              alt="Profile image"
-              height={48}
-              width={48}
-            />
+            <Link href={profile.link} key={profile.id}>
+              <a>
+                <Image 
+                  src={profile.icon}
+                  alt="Profile image"
+                  height={48}
+                  width={48}
+                />
+              </a>
+            </Link>
           </div>
           <h6>bearoxo</h6>
         </div>

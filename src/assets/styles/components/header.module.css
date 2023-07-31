@@ -51,6 +51,11 @@
 	left: 10%;
 }
 
+.isActiveIcon {
+	border: 2px solid var(--color-secondary---yellow);
+  border-radius: 50px;
+}
+
 .search {
 	margin-left: 100px;
 	margin-right: 25px;
@@ -58,11 +63,18 @@
 	font-size: 0px;
 }
 
+.searchButton {
+	padding: 10px;
+}
+
 .profile {
 	display: flex;
 	align-items: center;
 	gap: 16px;
   margin: 0 75px 0 0;
+}
+
+.profileImage {
 	cursor: pointer;
 }
 

@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import styles from '../styles/components/footer.module.css';
-import newsletterButton from '../../../public/img/newsletter-button.svg'
-import { footer } from '../utils/data'
+import { footer, icons } from '../utils/data'
+
 
 export default function Footer () {
+  const menu = footer.menu
+  const contacts = footer.contacts
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -21,7 +24,7 @@ export default function Footer () {
             <div className={styles.input}>
   						<input type="text" placeholder="Insert your mail here"/>
               <button>
-                <Image src={newsletterButton} alt="Newsletter button" width={48} height={48} />
+                <Image src={icons.newsletter_btn.path} alt={icons.newsletter_btn.alt} width={48} height={48} />
               </button>
             </div>
           </div>
@@ -30,7 +33,7 @@ export default function Footer () {
 
         <div className={styles.right}>
           <div className={styles.menu}>
-            {footer.menu.map((item) => {
+            {menu.map((item) => {
               return (
                 <div className={styles.menuItem} key={item.id}>
                   <h6>{item.name}</h6>
@@ -45,7 +48,7 @@ export default function Footer () {
           </div>
 
           <div className={styles.contacts}>
-              {footer.contacts.map((item) => {
+              {contacts.map((item) => {
                 return (
                   <div className={styles.contactItem} key={item.id}>
                     <div className={styles.contactIcon} key={item.id}>

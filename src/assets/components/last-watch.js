@@ -2,18 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { MovieContext } from '../contexts/MovieContext'
-import { useRouter } from 'next/router';
 import styles from '../styles/components/last-watch.module.css';
-
-import duration from '../../../public/img/duration.svg';
-import views from '../../../public/img/views.svg'
+import { icons } from '../utils/data';
 
 export default function LastWatch () {
   const { movies } = useContext(MovieContext)  
-  console.log("2...")
-  movies.map((movie) => {
-    console.log(movie)
-  })
+
+  // movies.map((movie) => {
+  //   console.log(movie)
+  // })
   
   return (
       <div className={styles.lastWatch}>
@@ -29,17 +26,19 @@ export default function LastWatch () {
               </div>
               <div className={styles.overlay}>
                 <div className={styles.genre}>{movie.Genre}</div>
-                <div className={styles.details}>
-                  <div className={styles.duration}>
-                    <Image src={duration} alt="Views" height={24} width={24} />
-                    {movie.Duration}
+                <div>
+                  <div className={styles.details}>
+                    <div className={styles.duration}>
+                      <Image src={icons.duration.path} alt={icons.duration.alt} height={24} width={24} />
+                      {movie.Duration}
+                    </div>
+                    <div className={styles.views}>
+                      <Image src={icons.views.path} alt={icons.views.alt} height={24} width={24} />
+                      {movie.Views}
+                    </div>
                   </div>
-                  <div className={styles.views}>
-                    <Image src={views} alt="Views" height={24} width={24} />
-                    {movie.Views}
-                  </div>
+                  <div className={styles.cardTitle}><h3>{movie.Title}</h3></div>
                 </div>
-                <div className={styles.cardTitle}><h3>{movie.Title}</h3></div>
               </div>
             </div>
           ))}

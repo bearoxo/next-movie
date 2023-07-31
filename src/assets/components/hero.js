@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/components/hero.module.css';
-import playButton from '../../../public/img/play-button.svg'
+import { icons } from '../utils/data';
 
-export default function HeroMain () {
+export default function Hero () {
   const router = useRouter();
 
   return (
@@ -12,8 +12,8 @@ export default function HeroMain () {
       <div className={styles.container}>
         <div className={styles.playBtn}>
           <Image 
-            src={playButton}
-            alt="Play button"
+            src={icons.play_btn.path}
+            alt={icons.play_btn.alt}
             height={250}
             width={250}
           />
