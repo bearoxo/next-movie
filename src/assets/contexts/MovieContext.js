@@ -29,4 +29,8 @@ const MovieProvider = ({ children }) => {
 
 }
 
-export { MovieContext, MovieProvider };
+const useMovieContext = () => {
+  return useContext(MovieContext);
+};
+
+export { MovieContext, MovieProvider, useMovieContext };

@@ -1,12 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { useContext } from 'react';
-import { MovieContext } from '../contexts/MovieContext'
+import { useMovieContext } from '../contexts/MovieContext'
 import styles from '../styles/components/last-watch.module.css';
 import { icons } from '../utils/data';
 
 export default function LastWatch () {
-  const { movies } = useContext(MovieContext)  
+  const { movies } = useMovieContext();
 
   // movies.map((movie) => {
   //   console.log(movie)
