@@ -26,7 +26,6 @@ const MovieProvider = ({ children }) => {
         { children }
     </MovieContext.Provider>
   );
-
 }
 
 const useMovieContext = () => {

@@ -14,7 +14,7 @@ const SearchProvider = ({ children }) => {
 
   useEffect(() => {
     handleSearch();
-  }, );
+  }, [searchQuery] );
 
   const handleSearch = async () => {
     try {
@@ -25,6 +25,7 @@ const SearchProvider = ({ children }) => {
       }
       const data = await response.json();
       setMovies(data.data);
+      console.log("handleSearch ended");
     } catch (error) {
       console.error("Error fetching movies:", error.message)
     }
@@ -32,11 +33,12 @@ const SearchProvider = ({ children }) => {
 
   const updateSearchQuery = (newSearchQuery) => {
     setSearchQuery(newSearchQuery);
-    console.log("newSearchQuery", newSearchQuery);
   };
 
+  const value = { movies, startDate, setStartDate, searchQuery, setSearchQuery, updateSearchQuery }
+  
   return (
-    <SearchContext.Provider value={{ movies, startDate, setStartDate, searchQuery, setSearchQuery, updateSearchQuery}}>
+    <SearchContext.Provider value={value}>
         { children }
     </SearchContext.Provider>
   );

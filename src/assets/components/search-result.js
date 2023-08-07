@@ -4,8 +4,8 @@ import { useSearchContext } from '../contexts/SearchContext'
 import styles from '../styles/components/search-result.module.css';
 import { icons } from '../utils/data';
 
-export default function SearchResult (movies) {
-  // const { movies } = useSearchContext();  
+export default function SearchResult () {
+  const { movies } = useSearchContext();  
   
   console.log("movies in SearchResult:", movies);
   // movies.map((movie) => {

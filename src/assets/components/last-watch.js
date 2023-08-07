@@ -17,7 +17,7 @@ export default function LastWatch () {
           <h5>View more</h5>
         </div>
         <div className={styles.cardContainer}>
-          {movies.map((movie) => (
+          {movies ? movies.map((movie) => (
             <div key={movie.Movie_ID} className={styles.cards}>
               <div className={styles.poster}>
                 <Image src={movie.Poster} alt={movie.Title} loading="lazy" layout="fill" objectFit="cover" objectPosition="center" />
@@ -39,7 +39,9 @@ export default function LastWatch () {
                 </div>
               </div>
             </div>
-          ))}
+          )) : (
+            <p>No data found.</p>
+          )}
         </div>
       </div>
   )

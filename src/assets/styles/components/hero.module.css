@@ -44,4 +44,5 @@
 }
 .playBtn {
 	margin-left: 100px;
+	flex-shrink: 0;
 }

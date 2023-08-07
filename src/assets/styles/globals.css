@@ -4,7 +4,7 @@
 :root {
   /* Container */
   --container---max-width: 1440px;
-  --container---min-width: 720px;
+  --container---min-width: 1280px;
   
   /* Colorgraphy */
   --color-base---black: rgba(0, 0, 0, 1);
