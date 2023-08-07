@@ -1,17 +1,11 @@
 import Image from 'next/image';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import styles from '../styles/components/hero.module.css';
 import { icons } from '../utils/data';
 import HeroSearchTheatre from './hero-search-theatre'
 import HeroSearchTimeslot from './hero-search-timeslot'
-import { useSearchContext } from "../contexts/SearchContext"
 
 export default function HeroSearch () {
-  const [search, setSearch] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
-
-  // const [movies] = useSearchContext();
-
   const [displayTheatre, setDisplayTheatre] = useState(true);
 
   const toggleDisplay = () => {

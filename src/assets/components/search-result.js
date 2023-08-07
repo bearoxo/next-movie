@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useContext } from 'react';
 import { useSearchContext } from '../contexts/SearchContext'
 import styles from '../styles/components/search-result.module.css';
 import { icons } from '../utils/data';
@@ -8,9 +7,6 @@ export default function SearchResult () {
   const { movies } = useSearchContext();  
   
   console.log("movies in SearchResult:", movies);
-  // movies.map((movie) => {
-  //   console.log("movie", movie)
-  // })
   
   return (
       <div className={styles.lastWatch}>

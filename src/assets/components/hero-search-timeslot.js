@@ -4,6 +4,7 @@ import styles from '../styles/components/hero-search-timeslot.module.css';
 import { icons } from '../utils/data';
 import { DP_DayTime_Range_Start, DP_DayTime_Range_End } from './date-picker';
 import { format } from 'date-fns'
+import { useSearchContext } from "../contexts/SearchContext"
 
 export default function HeroSearchTimeslot () {
   const [search, setSearch] = useState('');
@@ -11,15 +12,16 @@ export default function HeroSearchTimeslot () {
   const [startTime, setStartTime] = useState(today);
   const tomorrow = today.setDate(today.getDate() + 1);
   const [endTime, setEndTime] = useState(tomorrow);
+  const {updateSearchQuery} = useSearchContext();
 
   const handleSearchTimeslot = (e) => {
     e.preventDefault();
-    const url = `${process.env.NEXT_PUBLIC_PSTMN_MOCK_API}/timeslot`
+    const url = process.env.NEXT_PUBLIC_PSTMN_MOCK_API;
     const queryStartTime = format(startTime, 'yyyy-MM-dd hh:mm:ss')
     const queryEndTime = format(endTime, 'yyyy-MM-dd hh:mm:ss')
     const queryString = `?theater_name=${encodeURIComponent(search)}&time_start=${encodeURIComponent(queryStartTime)}&time_end=${encodeURIComponent(queryEndTime)}`;
-    const searchUrl = url + queryString;
-    console.log(searchUrl);
+    const searchUrl = `${url}/timeslot${queryString}`
+    updateSearchQuery(searchUrl);
   };
 
   return (

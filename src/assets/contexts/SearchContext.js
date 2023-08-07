@@ -5,12 +5,7 @@ const SearchContext = createContext();
 const SearchProvider = ({ children }) => {
   
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-
-  const [startDate, setStartDate] = useState(null);
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
 
   useEffect(() => {
     handleSearch();
@@ -35,7 +30,7 @@ const SearchProvider = ({ children }) => {
     setSearchQuery(newSearchQuery);
   };
 
-  const value = { movies, startDate, setStartDate, searchQuery, setSearchQuery, updateSearchQuery }
+  const value = { movies, searchQuery, updateSearchQuery }
   
   return (
     <SearchContext.Provider value={value}>
