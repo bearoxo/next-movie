@@ -4,21 +4,29 @@ import styles from '../styles/components/hero-search-theatre.module.css';
 import { icons } from '../utils/data';
 import { DP_Day } from './date-picker';
 import { format } from 'date-fns'
-import { SearchContext, SearchProvider, useSearchContext } from "../contexts/SearchContext"
+import { useSearchContext } from "../contexts/SearchContext"
 
 export default function HeroSearchTheatre () {
-  const {updateSearchQuery} = useSearchContext();
-  const [search, setSearch] = useState('');
+  const [theatreName, setTheatreName] = useState('');
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleSearchTheatre = (e) => {
+  const { setMovies } = useSearchContext();
+
+  const handleSearchTheatre = async (e) => {
     e.preventDefault();
-    const url = process.env.NEXT_PUBLIC_PSTMN_MOCK_API;
     const queryStartDate = format(startDate, 'yyyy-MM-dd');
-    const queryString = `?theater_name=${encodeURIComponent(search)}&d_date=${encodeURIComponent(queryStartDate)}`;
-    const searchUrl = `${url}/specific_movie_theater${queryString}`;
-    updateSearchQuery(searchUrl);
-  };
+    const searchQuery = `/api/search-theatre?theatreName=${encodeURIComponent(theatreName)}&queryStartDate=${encodeURIComponent(queryStartDate)}`;
+    try {
+      // Call the server-side function to fetch data from the API
+      console.log("Fetching searchQuery...", searchQuery);
+      const response = await fetch(searchQuery);
+      const data = await response.json();
+      setMovies(data)
+      console.log("Fetched data:", data)
+    } catch (error) {
+      console.error(`Error fetching movies: ${error.message}`);
+    }
+  }
 
   return (
     <>
@@ -33,7 +41,7 @@ export default function HeroSearchTheatre () {
                 width={20}
               />
             </div>
-            <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='Search by theatre...' />
+            <input onChange={(e) => setTheatreName(e.target.value)} type="text" placeholder='Search by theatre...' />
           </div>
           <div className={styles.dpContainer}>
             <Image 

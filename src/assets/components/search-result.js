@@ -4,9 +4,10 @@ import styles from '../styles/components/search-result.module.css';
 import { icons } from '../utils/data';
 
 export default function SearchResult () {
+
   const { movies } = useSearchContext();  
   
-  console.log("movies in SearchResult:", movies);
+  // console.log("movies in SearchResult:", movies);
   
   return (
       <div className={styles.lastWatch}>

@@ -7,21 +7,29 @@ import { format } from 'date-fns'
 import { useSearchContext } from "../contexts/SearchContext"
 
 export default function HeroSearchTimeslot () {
-  const [search, setSearch] = useState('');
+  const [theatreName, setTheatreName] = useState('');
   const today = new Date()
   const [startTime, setStartTime] = useState(today);
   const tomorrow = today.setDate(today.getDate() + 1);
   const [endTime, setEndTime] = useState(tomorrow);
-  const {updateSearchQuery} = useSearchContext();
 
-  const handleSearchTimeslot = (e) => {
+  const { setMovies } = useSearchContext();
+
+  const handleSearchTimeslot = async (e) => {
     e.preventDefault();
-    const url = process.env.NEXT_PUBLIC_PSTMN_MOCK_API;
     const queryStartTime = format(startTime, 'yyyy-MM-dd hh:mm:ss')
     const queryEndTime = format(endTime, 'yyyy-MM-dd hh:mm:ss')
-    const queryString = `?theater_name=${encodeURIComponent(search)}&time_start=${encodeURIComponent(queryStartTime)}&time_end=${encodeURIComponent(queryEndTime)}`;
-    const searchUrl = `${url}/timeslot${queryString}`
-    updateSearchQuery(searchUrl);
+    const searchQuery = `/api/search-timeslot?theatreName=${encodeURIComponent(theatreName)}&queryStartTime=${encodeURIComponent(queryStartTime)}&queryEndTime=${encodeURIComponent(queryEndTime)}`;
+    try {
+      // Call the server-side function to fetch data from the API
+      console.log("Fetching searchQuery...", searchQuery);
+      const response = await fetch(searchQuery);
+      const data = await response.json();
+      setMovies(data)
+      console.log("Fetched data:", data)
+    } catch (error) {
+      console.error(`Error fetching movies: ${error.message}`);
+    }
   };
 
   return (
@@ -37,7 +45,7 @@ export default function HeroSearchTimeslot () {
                 width={20}
               />
             </div>
-            <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='Theatre name...' />
+            <input onChange={(e) => setTheatreName(e.target.value)} type="text" placeholder='Theatre name...' />
           </div>
           <div>
             <div className={styles.dpContainer}>

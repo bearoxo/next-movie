@@ -5,11 +5,6 @@ import { icons } from '../utils/data';
 
 export default function LastWatch () {
   const { movies } = useMovieContext();
-
-  // movies.map((movie) => {
-  //   console.log(movie)
-  // })
-  
   return (
       <div className={styles.lastWatch}>
         <div className={styles.title}>
