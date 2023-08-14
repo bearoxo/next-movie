@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import styles from '../styles/components/hero-search-theatre.module.css';
 import { icons } from '../utils/data';
 import { DP_Day } from './date-picker';
