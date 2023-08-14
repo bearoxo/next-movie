@@ -11,11 +11,12 @@ export default function HeroSearchTheatre () {
   const [startDate, setStartDate] = useState(new Date());
 
   const { setMovies } = useSearchContext();
-
+  const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
+  
   const handleSearchTheatre = async (e) => {
     e.preventDefault();
     const queryStartDate = format(startDate, 'yyyy-MM-dd');
-    const searchQuery = `/api/search-theatre?theatreName=${encodeURIComponent(theatreName)}&queryStartDate=${encodeURIComponent(queryStartDate)}`;
+    const searchQuery = `${baseUrl}/api/search-theatre?theatreName=${encodeURIComponent(theatreName)}&queryStartDate=${encodeURIComponent(queryStartDate)}`;
     try {
       // Call the server-side function to fetch data from the API
       console.log("Fetching searchQuery...", searchQuery);

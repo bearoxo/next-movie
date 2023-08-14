@@ -14,12 +14,13 @@ export default function HeroSearchTimeslot () {
   const [endTime, setEndTime] = useState(tomorrow);
 
   const { setMovies } = useSearchContext();
+  const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
 
   const handleSearchTimeslot = async (e) => {
     e.preventDefault();
     const queryStartTime = format(startTime, 'yyyy-MM-dd hh:mm:ss')
     const queryEndTime = format(endTime, 'yyyy-MM-dd hh:mm:ss')
-    const searchQuery = `/api/search-timeslot?theatreName=${encodeURIComponent(theatreName)}&queryStartTime=${encodeURIComponent(queryStartTime)}&queryEndTime=${encodeURIComponent(queryEndTime)}`;
+    const searchQuery = `${baseUrl}/api/search-timeslot?theatreName=${encodeURIComponent(theatreName)}&queryStartTime=${encodeURIComponent(queryStartTime)}&queryEndTime=${encodeURIComponent(queryEndTime)}`;
     try {
       // Call the server-side function to fetch data from the API
       console.log("Fetching searchQuery...", searchQuery);
